@@ -1,0 +1,6 @@
+framework module Pods_AppsOnAir_Core_Tests {
+  umbrella header "Pods-AppsOnAir-Core_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
