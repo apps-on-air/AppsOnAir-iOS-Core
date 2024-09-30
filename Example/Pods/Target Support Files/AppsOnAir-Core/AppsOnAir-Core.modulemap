@@ -1,0 +1,6 @@
+framework module AppsOnAir_Core {
+  umbrella header "AppsOnAir-Core-umbrella.h"
+
+  export *
+  module * { export * }
+}

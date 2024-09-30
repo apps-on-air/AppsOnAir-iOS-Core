@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '12.0'
+
+target 'AppsOnAir-Core_Example' do
+  pod 'AppsOnAir-Core', :path => '../'
+
+  target 'AppsOnAir-Core_Tests' do
+    inherit! :search_paths
+
+  end
+end
+
