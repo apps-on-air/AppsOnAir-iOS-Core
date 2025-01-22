@@ -13,6 +13,9 @@ protocol NetworkService {
     func stopMonitoring()
 }
 
+///get current network status
+var currentNetworkState: String = "Unknown"
+
 /// Implementation of network service using Reachability
 class ReachabilityNetworkService: NetworkService {
     private let reachability = try! Reachability()
@@ -45,6 +48,16 @@ class ReachabilityNetworkService: NetworkService {
         guard let reachability = notification.object as? Reachability else { return }
 
         let isConnected = reachability.connection != .unavailable
+        
+        switch reachability.connection {
+           case .wifi:
+            currentNetworkState = "Wi-Fi"
+           case .cellular:
+            currentNetworkState = "Mobile Data"
+           case .unavailable:
+            currentNetworkState = "Not Connected"
+        }
+        
         delegate?.networkStatusDidChange(status: isConnected)
         Logger.logInternal("Network State: \(isConnected)")
     }

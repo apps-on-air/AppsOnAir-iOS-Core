@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>AppsOnAirAPIKey</key>
-	<string>f4b12b26-f2dd-4d47-b2cf-fe3fc930e875</string>
+	<string>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

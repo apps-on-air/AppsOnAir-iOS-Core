@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsOnAir-Core'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'AppsOnAir Core'
 
   s.description      = "AppsOnAir Core provide central configuration for other AppsOnAir services."
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'AppsOnAir-Core/Classes/**/*'
   
-  # Netwrok connectivity pod
-  s.dependency 'ReachabilitySwift'
+  # Network connectivity pod
+  s.dependency 'ReachabilitySwift', '~> 5.2.4'
 
 end

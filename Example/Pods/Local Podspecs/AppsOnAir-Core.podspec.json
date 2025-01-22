@@ -1,6 +1,6 @@
 {
   "name": "AppsOnAir-Core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "AppsOnAir Core",
   "description": "AppsOnAir Core provide central configuration for other AppsOnAir services.",
   "homepage": "https://documentation.appsonair.com/Mobile-Quickstart/ios-sdk-setup",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/apps-on-air/AppsOnAir-iOS-Core.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "swift_versions": "5.0",
   "platforms": {
@@ -22,7 +22,7 @@
   "source_files": "AppsOnAir-Core/Classes/**/*",
   "dependencies": {
     "ReachabilitySwift": [
-
+      "~> 5.2.4"
     ]
   },
   "swift_version": "5.0"
