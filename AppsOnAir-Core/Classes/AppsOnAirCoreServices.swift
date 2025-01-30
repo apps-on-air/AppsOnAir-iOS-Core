@@ -62,10 +62,11 @@ public class AppsOnAirCoreServices : NSObject, NetworkServiceDelegate {
                #endif
            }
        }
-   
-    /// helps to check internet connectivity
-    @objc public func isConnectedNetwork()-> Bool{
-        return (isNetworkConnected ?? false)
+    
+    ///get device information
+    @objc public func getDeviceInfo(additionalInfo: [String:Any] = [:])-> [String:Any]{
+        let deviceInfo = DeviceInfoService()
+        return deviceInfo.getDeviceInfo(additionalInfo: additionalInfo)
     }
     
     /// helps to listen internet connectivity state
