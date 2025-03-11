@@ -58,7 +58,7 @@ class ReachabilityNetworkService: NetworkService {
             currentNetworkState = "Not Connected"
         }
         
-        //Rect-native improvement
+        //Improvements for React Native platform.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.001, execute: {
             self.delegate?.networkStatusDidChange(status: isConnected)
         })

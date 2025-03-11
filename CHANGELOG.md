@@ -1,6 +1,6 @@
 ## 0.0.3
 
-* Rect-native Improvement
+* Improvements for React Native platform.
 
 ## 0.0.2
 
