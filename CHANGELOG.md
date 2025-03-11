@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Rect-native Improvement
+
 ## 0.0.2
 
 * Added support to get basic device information
