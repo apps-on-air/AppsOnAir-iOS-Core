@@ -72,8 +72,8 @@ public class AppsOnAirCoreServices : NSObject, NetworkServiceDelegate {
     /// helps to listen internet connectivity state
     func networkStatusDidChange(status: Bool) {
         if(isNetworkConnected != status){
-            networkStatusChangeHandler?(status)
             isNetworkConnected = status
+            networkStatusChangeHandler?(status)
         }
     }
     /// Method to set the network status change handler
