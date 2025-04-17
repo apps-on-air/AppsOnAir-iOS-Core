@@ -1,0 +1,1076 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "AppsOnAir_Core",
+    "printedName": "AppsOnAir_Core",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AppsOnAirCoreServices",
+        "printedName": "AppsOnAirCoreServices",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "appId",
+            "printedName": "appId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14AppsOnAir_Core0abcD8ServicesC5appIdSSvp",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC5appIdSSvp",
+            "moduleName": "AppsOnAir_Core",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC5appIdSSvg",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC5appIdSSvg",
+                "moduleName": "AppsOnAir_Core",
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC5appIdSSvs",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC5appIdSSvs",
+                "moduleName": "AppsOnAir_Core",
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC5appIdSSvM",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC5appIdSSvM",
+                "moduleName": "AppsOnAir_Core",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isNetworkConnected",
+            "printedName": "isNetworkConnected",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Bool?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvp",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvp",
+            "moduleName": "AppsOnAir_Core",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvg",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvg",
+                "moduleName": "AppsOnAir_Core",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Bool?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvs",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvs",
+                "moduleName": "AppsOnAir_Core",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvM",
+                "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC18isNetworkConnectedSbSgvM",
+                "moduleName": "AppsOnAir_Core",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices(im)initialize",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC10initializeyyF",
+            "moduleName": "AppsOnAir_Core",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getDeviceInfo",
+            "printedName": "getDeviceInfo(additionalInfo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.String : Any]) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices(im)getDeviceInfoWithAdditionalInfo:completion:",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC13getDeviceInfo010additionalH010completionySDySSypG_yAGctF",
+            "moduleName": "AppsOnAir_Core",
+            "objc_name": "getDeviceInfoWithAdditionalInfo:completion:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "networkStatusListenerHandler",
+            "printedName": "networkStatusListenerHandler(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices(im)networkStatusListenerHandler:",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC28networkStatusListenerHandleryyySbcF",
+            "moduleName": "AppsOnAir_Core",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AppsOnAirCoreServices",
+                "printedName": "AppsOnAir_Core.AppsOnAirCoreServices",
+                "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices(im)init",
+            "mangledName": "$s14AppsOnAir_Core0abcD8ServicesCACycfc",
+            "moduleName": "AppsOnAir_Core",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@AppsOnAir_Core@objc(cs)AppsOnAirCoreServices",
+        "mangledName": "$s14AppsOnAir_Core0abcD8ServicesC",
+        "moduleName": "AppsOnAir_Core",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "Network",
+        "printedName": "Network",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreTelephony",
+        "printedName": "CoreTelephony",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "StoreKit",
+        "printedName": "StoreKit",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LoggerLevel",
+        "printedName": "LoggerLevel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppsOnAir_Core.LoggerLevel.Type) -> AppsOnAir_Core.LoggerLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggerLevel",
+                    "printedName": "AppsOnAir_Core.LoggerLevel",
+                    "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppsOnAir_Core.LoggerLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoggerLevel",
+                        "printedName": "AppsOnAir_Core.LoggerLevel",
+                        "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO4noneyA2CmF",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO4noneyA2CmF",
+            "moduleName": "AppsOnAir_Core"
+          },
+          {
+            "kind": "Var",
+            "name": "developer",
+            "printedName": "developer",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppsOnAir_Core.LoggerLevel.Type) -> AppsOnAir_Core.LoggerLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggerLevel",
+                    "printedName": "AppsOnAir_Core.LoggerLevel",
+                    "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppsOnAir_Core.LoggerLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoggerLevel",
+                        "printedName": "AppsOnAir_Core.LoggerLevel",
+                        "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO9developeryA2CmF",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO9developeryA2CmF",
+            "moduleName": "AppsOnAir_Core"
+          },
+          {
+            "kind": "Var",
+            "name": "internalLevel",
+            "printedName": "internalLevel",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppsOnAir_Core.LoggerLevel.Type) -> AppsOnAir_Core.LoggerLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggerLevel",
+                    "printedName": "AppsOnAir_Core.LoggerLevel",
+                    "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppsOnAir_Core.LoggerLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LoggerLevel",
+                        "printedName": "AppsOnAir_Core.LoggerLevel",
+                        "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO08internalF0yA2CmF",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO08internalF0yA2CmF",
+            "moduleName": "AppsOnAir_Core"
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LoggerLevel",
+                "printedName": "AppsOnAir_Core.LoggerLevel",
+                "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LoggerLevel",
+                "printedName": "AppsOnAir_Core.LoggerLevel",
+                "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppsOnAir_Core",
+            "static": true,
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO9hashValueSivp",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO9hashValueSivp",
+            "moduleName": "AppsOnAir_Core",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core11LoggerLevelO9hashValueSivg",
+                "mangledName": "$s14AppsOnAir_Core11LoggerLevelO9hashValueSivg",
+                "moduleName": "AppsOnAir_Core",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AppsOnAir_Core11LoggerLevelO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s14AppsOnAir_Core11LoggerLevelO4hash4intoys6HasherVz_tF",
+            "moduleName": "AppsOnAir_Core",
+            "implicit": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:14AppsOnAir_Core11LoggerLevelO",
+        "mangledName": "$s14AppsOnAir_Core11LoggerLevelO",
+        "moduleName": "AppsOnAir_Core",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Logger",
+        "printedName": "Logger",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "logLevel",
+            "printedName": "logLevel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LoggerLevel",
+                "printedName": "AppsOnAir_Core.LoggerLevel",
+                "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvpZ",
+            "mangledName": "$s14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvpZ",
+            "moduleName": "AppsOnAir_Core",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggerLevel",
+                    "printedName": "AppsOnAir_Core.LoggerLevel",
+                    "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvgZ",
+                "mangledName": "$s14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvgZ",
+                "moduleName": "AppsOnAir_Core",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggerLevel",
+                    "printedName": "AppsOnAir_Core.LoggerLevel",
+                    "usr": "s:14AppsOnAir_Core11LoggerLevelO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvsZ",
+                "mangledName": "$s14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvsZ",
+                "moduleName": "AppsOnAir_Core",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvMZ",
+                "mangledName": "$s14AppsOnAir_Core6LoggerV8logLevelAA0eG0OvMZ",
+                "moduleName": "AppsOnAir_Core",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "logInfo",
+            "printedName": "logInfo(_:prefix:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AppsOnAir_Core6LoggerV7logInfo_6prefixySS_SSSgtFZ",
+            "mangledName": "$s14AppsOnAir_Core6LoggerV7logInfo_6prefixySS_SSSgtFZ",
+            "moduleName": "AppsOnAir_Core",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "logInternal",
+            "printedName": "logInternal(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AppsOnAir_Core6LoggerV11logInternalyySSFZ",
+            "mangledName": "$s14AppsOnAir_Core6LoggerV11logInternalyySSFZ",
+            "moduleName": "AppsOnAir_Core",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "throwError",
+            "printedName": "throwError(domainName:message:errorCode:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:14AppsOnAir_Core6LoggerV10throwError10domainName7message9errorCodeySSSg_AHSiSgtFZ",
+            "mangledName": "$s14AppsOnAir_Core6LoggerV10throwError10domainName7message9errorCodeySSSg_AHSiSgtFZ",
+            "moduleName": "AppsOnAir_Core",
+            "static": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:14AppsOnAir_Core6LoggerV",
+        "mangledName": "$s14AppsOnAir_Core6LoggerV",
+        "moduleName": "AppsOnAir_Core",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core"
+      },
+      {
+        "kind": "Import",
+        "name": "Reachability",
+        "printedName": "Reachability",
+        "declKind": "Import",
+        "moduleName": "AppsOnAir_Core",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/harshil-gandhi-us\/Desktop\/Demo\/AppsOnAir\/AppsOnAirCore\/AppsOnAir-iOS-Core\/AppsOnAir_Core\/AppsOnAir_Core\/AppsOnAirCoreServices.swift",
+      "kind": "StringLiteral",
+      "offset": 349,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/harshil-gandhi-us\/Desktop\/Demo\/AppsOnAir\/AppsOnAirCore\/AppsOnAir-iOS-Core\/AppsOnAir_Core\/AppsOnAir_Core\/AppsOnAirCoreServices.swift",
+      "kind": "StringLiteral",
+      "offset": 1124,
+      "length": 91,
+      "value": "\"AppsOnAir APIKey is Not initialized for more details: https:\/\/documentation.appsonair.com\""
+    },
+    {
+      "filePath": "\/Users\/harshil-gandhi-us\/Desktop\/Demo\/AppsOnAir\/AppsOnAirCore\/AppsOnAir-iOS-Core\/AppsOnAir_Core\/AppsOnAir_Core\/AppsOnAirCoreServices.swift",
+      "kind": "Dictionary",
+      "offset": 2335,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/harshil-gandhi-us\/Desktop\/Demo\/AppsOnAir\/AppsOnAirCore\/AppsOnAir-iOS-Core\/AppsOnAir_Core\/AppsOnAir_Core\/DeviceInfoService.swift",
+      "kind": "Dictionary",
+      "offset": 341,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/harshil-gandhi-us\/Desktop\/Demo\/AppsOnAir\/AppsOnAirCore\/AppsOnAir-iOS-Core\/AppsOnAir_Core\/AppsOnAir_Core\/NetwarkWatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 456,
+      "length": 9,
+      "value": "\"Unknown\""
+    }
+  ]
+}
