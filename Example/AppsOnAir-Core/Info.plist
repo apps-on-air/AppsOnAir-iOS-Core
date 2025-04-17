@@ -4,10 +4,10 @@
 <dict>
 	<key>AppsOnAirAPIKey</key>
 	<string>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX</string>
-	<key>CFBundleDisplayName</key>
-	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

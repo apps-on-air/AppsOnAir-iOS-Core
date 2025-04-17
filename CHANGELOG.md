@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Add XCFramework for enhanced security, Refactored method and overall improvements.
+
 ## 0.0.3
 
 * Improvements for React Native platform.

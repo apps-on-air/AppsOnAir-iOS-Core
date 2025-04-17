@@ -1,0 +1,45 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AppsOnAir_Core
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+import AVFoundation
+import CoreTelephony
+import Foundation
+import Network
+import StoreKit
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objc public class AppsOnAirCoreServices : ObjectiveC.NSObject {
+  public var appId: Swift.String {
+    get
+    set
+  }
+  public typealias NetworkStatusChangeHandler = (Swift.Bool) -> Swift.Void
+  public var isNetworkConnected: Swift.Bool?
+  @objc public func initialize()
+  @objc public func getDeviceInfo(additionalInfo: [Swift.String : Any] = [:], completion: @escaping ([Swift.String : Any]) -> Swift.Void)
+  @objc public func networkStatusListenerHandler(_ handler: @escaping AppsOnAir_Core.AppsOnAirCoreServices.NetworkStatusChangeHandler)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum LoggerLevel {
+  case none
+  case developer
+  case internalLevel
+  public static func == (a: AppsOnAir_Core.LoggerLevel, b: AppsOnAir_Core.LoggerLevel) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct Logger {
+  public static var logLevel: AppsOnAir_Core.LoggerLevel
+  public static func logInfo(_ message: Swift.String, prefix: Swift.String? = nil)
+  public static func logInternal(_ message: Swift.String)
+  public static func throwError(domainName: Swift.String? = nil, message: Swift.String? = nil, errorCode: Swift.Int? = nil)
+}
+extension AppsOnAir_Core.LoggerLevel : Swift.Equatable {}
+extension AppsOnAir_Core.LoggerLevel : Swift.Hashable {}

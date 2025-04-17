@@ -25,10 +25,9 @@ class ViewController: UIViewController {
         }
         
         // help to get device info
-        DispatchQueue.main.async {
-            let result = self.appsonAirCoreService.getDeviceInfo(additionalInfo: ["XX":"XX"])
-            print(result)
-        }
+            self.appsonAirCoreService.getDeviceInfo { deviceInfo in
+                print(deviceInfo)
+            }
     }
 
     override func didReceiveMemoryWarning() {
