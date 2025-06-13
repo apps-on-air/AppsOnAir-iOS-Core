@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsOnAir-Core'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'AppsOnAir Core'
 
   s.description      = "AppsOnAir Core provide central configuration for other AppsOnAir services."
@@ -21,5 +21,8 @@ Pod::Spec.new do |s|
   s.swift_version  = '5.0'
   s.ios.deployment_target = '12.0'
 
- s.vendored_frameworks = 'AppsOnAir_Core.xcframework'
+  s.source_files = 'AppsOnAir-Core/**/*'
+  
+  # Network connectivity pod
+  s.dependency 'ReachabilitySwift', '5.2.4'
 end

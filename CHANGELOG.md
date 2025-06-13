@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Minor improvements and fixes
+
 ## 0.0.4
 
 * Add XCFramework for enhanced security, Refactored method and overall improvements.
