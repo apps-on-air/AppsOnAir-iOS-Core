@@ -1,4 +1,0 @@
-framework module AppsOnAir_Core {
-  header "AppsOnAir_Core-Swift.h"
-  requires objc
-}
