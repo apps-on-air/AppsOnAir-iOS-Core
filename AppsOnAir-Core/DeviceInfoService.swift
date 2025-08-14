@@ -39,12 +39,12 @@ internal class DeviceInfoService {
         deviceInfo["deviceModel"] = getDeviceModel()
         deviceInfo["deviceOsVersion"] = UIDevice.current.systemVersion
         
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         let batteryLevelString = "100%"
-        #else
+#else
         let batteryLevelRaw = UIDevice.current.batteryLevel
         let batteryLevelString = batteryLevelRaw < 0 ? "Unknown" : "\(Int(batteryLevelRaw * 100))%"
-        #endif
+#endif
         
         deviceInfo["deviceBatteryLevel"] = batteryLevelString
         deviceInfo["batteryStatus"] = getCurrentBatteryStatus()
@@ -58,8 +58,8 @@ internal class DeviceInfoService {
         
         // Storage Info
         let storage = getDeviceStorage()
-        deviceInfo["deviceTotalStorage"] = storage.total
-        deviceInfo["deviceUsedStorage"] = storage.used
+        deviceInfo["deviceTotalStorage"] = storage?.total ?? ""
+        deviceInfo["deviceUsedStorage"] = storage?.used ?? ""
         
         // Screen Size
         let screen = getDeviceScreenSize()
@@ -69,7 +69,7 @@ internal class DeviceInfoService {
         let deviceOrientation: String = {
             if #available(iOS 13.0, *),
                let orientation = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?
-                                    .windows.first?.windowScene?.interfaceOrientation {
+                .windows.first?.windowScene?.interfaceOrientation {
                 return orientation.isLandscape ? "Landscape" : "Portrait"
             }
             return UIDevice.current.orientation.isLandscape ? "Landscape" : "Portrait"
@@ -100,7 +100,7 @@ internal class DeviceInfoService {
             completion(systemInfo)
         }
     }
-
+    
     
     
     // MARK: - Helper Methods
@@ -215,28 +215,34 @@ internal class DeviceInfoService {
     
     
     ///fetch App first install DateTime
-    internal func formatDateToIST12Hour(_ date: Date) -> String {
+    internal func formatDateToDeviceTimeZone(_ date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(identifier: "Asia/Kolkata") // IST
-        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss a" // 12-hour with AM/PM
+        
+        // Use device's current timezone
+        formatter.timeZone = TimeZone.current
+        
+        // Use consistent month abbreviations
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        // Force 12-hour format with AM/PM
+        formatter.dateFormat = "dd-MMM-yyyy hh:mm:ss a"
+        
         return formatter.string(from: date)
     }
     
     
-    internal func getAppInstallationDate() -> String? {
+    internal func getAppInstallationDate() -> String {
         if let docPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path {
             do {
                 let attributes = try FileManager.default.attributesOfItem(atPath: docPath)
                 if let installationDate = attributes[.creationDate] as? Date {
-                    return formatDateToIST12Hour(installationDate)
+                    return formatDateToDeviceTimeZone(installationDate)
                 }
             } catch {
-                
-                return nil
+                return "Unavailable"
             }
-            
         }
-        return nil
+        return "Unavailable"
     }
     
     ///get device model name
@@ -460,7 +466,7 @@ internal class DeviceInfoService {
     }
     
     ///get Device Memory
-     internal func getDeviceMemory() -> String {
+    internal func getDeviceMemory() -> String {
         var size: UInt64 = 0
         var sizeOfSize = MemoryLayout<UInt64>.size
         let result = sysctlbyname("hw.memsize", &size, &sizeOfSize, nil, 0)
@@ -479,7 +485,7 @@ internal class DeviceInfoService {
     
     ///Get Region Code and Name
     internal func getDeviceRegion() -> (code: String, name: String) {
-        let locale = Locale.current
+        let locale = Locale.autoupdatingCurrent
         var regionCode = ""
         if #available(iOS 16.0, *){
             regionCode = locale.region?.identifier ?? "Unknown"
@@ -492,39 +498,45 @@ internal class DeviceInfoService {
     
     // convert byte into (GB,KB,MB) according the size
     internal func formatMemorySize(_ sizeInBytes: UInt64) -> String {
-        if sizeInBytes >= (1024 * 1024 * 1024) {
-            let sizeInGB = Double(sizeInBytes) / (1024 * 1024 * 1024)
-            return String(format: "%.2f GB", sizeInGB)
-        } else if sizeInBytes >= (1024 * 1024) {
-            let sizeInMB = Double(sizeInBytes) / (1024 * 1024)
-            return String(format: "%.2f MB", sizeInMB)
-        } else {
-            let sizeInKB = Double(sizeInBytes) / 1024
-            return String(format: "%.2f KB", sizeInKB)
+        let bytes = Double(sizeInBytes)
+        
+        let gb = bytes / 1_000_000_000
+        if gb >= 1 {
+            return String(format: "%.1f GB", gb)
         }
+        
+        let mb = bytes / 1_000_000
+        if mb >= 1 {
+            return String(format: "%.1f MB", mb)
+        }
+        
+        let kb = bytes / 1_000
+        return String(format: "%.1f KB", kb)
     }
     
     // help to fetch device storage
-    internal func getDeviceStorage() -> (total: String, used: String) {
-        let fileManager = FileManager.default
+    internal func getDeviceStorage() -> (total: String, used: String, free: String)? {
         do {
-            // Get file system attributes
-            let attributes = try fileManager.attributesOfFileSystem(forPath: NSHomeDirectory())
-            if let totalSize = attributes[.systemSize] as? UInt64,
-               let freeSize = attributes[.systemFreeSize] as? UInt64 {
-                let usedSize = totalSize - freeSize
-                
-                // Convert and format total size
-                let totalFormatted = formatMemorySize(totalSize)
-                // Convert and format used size
-                let usedFormatted = formatMemorySize(usedSize)
-                
-                return (totalFormatted, usedFormatted)
-            }
+            // Total size (unchanged)
+            let attrs = try FileManager.default.attributesOfFileSystem(forPath: NSHomeDirectory())
+            guard let totalSize = attrs[.systemSize] as? UInt64 else { return nil }
+            
+            // Free size (matches Settings “Available”)
+            let freeSize = try URL(fileURLWithPath: NSHomeDirectory())
+                .resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+                .volumeAvailableCapacityForImportantUsage ?? 0
+            
+            let usedSize = totalSize - UInt64(freeSize)
+            
+            return (
+                total: formatMemorySize(totalSize),
+                used: formatMemorySize(usedSize),
+                free: formatMemorySize(UInt64(freeSize))
+            )
         } catch {
-            print("Error fetching storage info: \(error.localizedDescription)")
+            print("Error fetching storage info: \(error)")
+            return nil
         }
-        return ("Unavailable", "Unavailable")
     }
     
     
