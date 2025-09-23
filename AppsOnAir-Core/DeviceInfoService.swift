@@ -26,7 +26,7 @@ internal class DeviceInfoService {
         }
         appInfo["releaseVersionNumber"] = Bundle.main.releaseVersionNumber ?? ""
         appInfo["buildVersionNumber"] = Bundle.main.buildVersionNumber ?? ""
-        appInfo["appsOnAirCoreVersion"] = getPodVersion()
+        appInfo["appsOnAirCoreVersion"] = SdkManager.shared.getVersion(for: "AppsOnAir-Core")
         appInfo["appName"] = Bundle.main.appName ?? ""
         
         if !additionalInfo.isEmpty {
@@ -458,12 +458,6 @@ internal class DeviceInfoService {
         return "unknown"
     }
     
-    /// get pod version
-    internal func getPodVersion() -> String {
-        let podVersion = Bundle(for: AppsOnAirCoreServices.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        Logger.logInternal(podVersion)
-        return podVersion
-    }
     
     ///get Device Memory
     internal func getDeviceMemory() -> String {
