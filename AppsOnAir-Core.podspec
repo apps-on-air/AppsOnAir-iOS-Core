@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsOnAir-Core'
-  s.version          = '1.1.0'
+  s.version          = '1.1.1'
   s.summary          = 'AppsOnAir Core'
 
   s.description      = "AppsOnAir Core provide central configuration for other AppsOnAir services."
 
-  s.homepage         = 'https://documentation.appsonair.com/Mobile-Quickstart/ios-sdk-setup'
+  s.homepage         = 'https://documentation.appsonair.com/MobileQuickstart/GettingStarted'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'devtools-logicwind' => 'devtools@logicwind.com' }
   s.source           = { :git => 'https://github.com/apps-on-air/AppsOnAir-iOS-Core.git', :tag => s.version.to_s }
