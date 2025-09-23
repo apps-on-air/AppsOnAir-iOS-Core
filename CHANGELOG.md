@@ -1,3 +1,7 @@
+## 1.1.1
+
+* Minor improvements and fixes
+
 ## 1.1.0
 
 * Rename the key from `AppsOnAirAPIKey` to `AppsonairAppId`
