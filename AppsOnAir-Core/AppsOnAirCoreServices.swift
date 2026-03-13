@@ -34,7 +34,7 @@ import AVFoundation
     public var isNetworkConnected: Bool? = nil
 
     /// display message while developer forgot to add AppId in project info.plist file
-    private var errorMessage:String = "AppsOnAir APIKey is Not initialized for more details: https://documentation.appsonair.com" // !!!: Developer Guideline URL
+    private var errorMessage:String = "AppsOnAir AppId is Not initialized for more details: https://documentation.appsonair.com/MobileQuickstart/GettingStarted" // !!!: Developer Guideline URL
     
     
     
@@ -50,7 +50,7 @@ import AVFoundation
     /// Fetch AppId from project's info.plist
        @objc private func fetchAppId() {
             // Method to fetch appId from the info.plist
-           self._appId = Bundle.main.infoDictionary?["AppsOnAirAPIKey"] as? String ?? ""
+           self._appId = Bundle.main.infoDictionary?["AppsonairAppId"] as? String ?? Bundle.main.infoDictionary?["AppsOnAirAPIKey"] as? String ?? ""
            if self._appId.isEmpty {
                #if DEBUG
                // In debug mode or during development, the developer will get a crash if the AppId is not set up in the Info.plist file.
