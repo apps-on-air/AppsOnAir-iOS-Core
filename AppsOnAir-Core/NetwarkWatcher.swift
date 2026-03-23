@@ -1,5 +1,5 @@
 import Foundation
-internal import Reachability
+import Reachability
 
 /// Protocol to notify listeners about network state changes
 protocol NetworkServiceDelegate: AnyObject {
@@ -22,13 +22,14 @@ internal class ReachabilityNetworkService: NetworkService {
     weak var delegate: NetworkServiceDelegate?
 
     init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(networkChanged(_:)), name: .reachabilityChanged, object: nil)
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(networkChanged(_:)), name: .reachabilityChanged, object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
     }
-    
+
     /// start network connectivity listener
     internal func startMonitoring() {
         do {
@@ -37,35 +38,37 @@ internal class ReachabilityNetworkService: NetworkService {
             Logger.throwError(message: "startMonitoring startMonitoring: \(error)")
         }
     }
-    
+
     /// stop network connectivity listener
     internal func stopMonitoring() {
         reachability.stopNotifier()
     }
-    
+
     /// call when network state changed
     @objc private func networkChanged(_ notification: Notification) {
         guard let reachability = notification.object as? Reachability else { return }
 
         let isConnected = reachability.connection != .unavailable
-        
+
         switch reachability.connection {
-           case .wifi:
+        case .wifi:
             currentNetworkState = "Wi-Fi"
-           case .cellular:
-            
+        case .cellular:
+
             currentNetworkState = "Mobile Data"
-           case .unavailable:
+        case .unavailable:
             currentNetworkState = "Not Connected"
         @unknown default:
             currentNetworkState = "Not Connected"
         }
-        
+
         //Improvements for React Native platform.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.001, execute: {
-            self.delegate?.networkStatusDidChange(status: isConnected)
-        })
-        
+        DispatchQueue.main.asyncAfter(
+            deadline: .now() + 0.001,
+            execute: {
+                self.delegate?.networkStatusDidChange(status: isConnected)
+            })
+
         Logger.logInternal("Network State: \(isConnected)")
     }
 }

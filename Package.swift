@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "AppsOnAir-Core",
-            targets: ["AppsOnAir-Core"]
+            targets: ["AppsOnAir-Core", "AppsOnAir-Core-ObjC"]
         )
     ],
     dependencies: [
@@ -21,7 +21,16 @@ let package = Package(
             dependencies: [
                 .product(name: "Reachability", package: "Reachability.swift")
             ],
-            path: "AppsOnAir-Core"
+            path: "AppsOnAir-Core",
+            resources: [
+                .process("Resources/AppCoreInfo.plist")
+            ]
+        ),
+        .target(
+            name: "AppsOnAir-Core-ObjC",
+            dependencies: ["AppsOnAir-Core"],
+            path: "AppsOnAir_Core_ObjC",
+            publicHeadersPath: "include"
         )
     ]
 ) 
