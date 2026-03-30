@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
@@ -13,7 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/ashleymills/Reachability.swift.git", from: "5.2.4")
+        .package(url: "https://github.com/ashleymills/Reachability.swift.git", exact: "5.2.4")
     ],
     targets: [
         .target(
