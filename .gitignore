@@ -28,6 +28,11 @@ Pods/
 # Bundler
 .bundle
 
+# Swift Package Manager
+.build/
+Package.resolved
+*.resolved
+
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 

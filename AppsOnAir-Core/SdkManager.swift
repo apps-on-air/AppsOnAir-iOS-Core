@@ -1,11 +1,11 @@
 import Foundation
 
-public final class SdkManager {
+@objcMembers public final class SdkManager: NSObject {
     
     public static let shared = SdkManager()
     private var cachedVersions = [String: String]()
     
-    private init() {}
+    private override init() {}
     
     public func getVersion(for sdkName: String) -> String {
         if let cached = cachedVersions[sdkName] {

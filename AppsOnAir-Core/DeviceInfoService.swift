@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 import UIKit
 import Network
@@ -538,14 +539,14 @@ internal class DeviceInfoService {
     internal func getAppMemoryUsage() -> String {
         var info = task_basic_info()
         var count = mach_msg_type_number_t(MemoryLayout<task_basic_info>.size) / 4
-        
+
         // Get memory usage information of the current app
         let result: kern_return_t = withUnsafeMutablePointer(to: &info) {
             $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
                 task_info(mach_task_self_, task_flavor_t(TASK_BASIC_INFO), $0, &count)
             }
         }
-        
+
         // If successful, format the memory usage values
         if result == KERN_SUCCESS {
             let usedMemory = UInt64(info.resident_size)
@@ -555,3 +556,4 @@ internal class DeviceInfoService {
         }
     }
 }
+#endif
