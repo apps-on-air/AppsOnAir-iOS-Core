@@ -23,7 +23,7 @@ let package = Package(
             ],
             path: "AppsOnAir-Core",
             resources: [
-                .process("Resources/AppCoreInfo.plist")
+                .process("Resources/AppsOnAir-CoreInfo.plist")
             ]
         ),
         .target(
@@ -31,6 +31,6 @@ let package = Package(
             dependencies: ["AppsOnAir-Core"],
             path: "AppsOnAir_Core_ObjC",
             publicHeadersPath: "include"
-        )
+        ),
     ]
-) 
+)
