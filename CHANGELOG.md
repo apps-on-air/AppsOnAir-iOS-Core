@@ -1,3 +1,8 @@
+## 1.2.2
+
+* Added `deviceId` and `language` to device information
+* Added `getDeviceMetadata()` static method returning cheap synchronous device facts (deviceId, language, locale, regionCode, osVersion, platform, timezone, deviceModel, manufacturer, appVersion, buildVersionNumber, themeMode, fontScale, isSimulator, firstInstallTime, installVendor) for SDKs
+
 ## 1.2.1
 
 * Minor improvements and fixes
