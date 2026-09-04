@@ -20,6 +20,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getDeviceInfoWithAdditionalInfo:(NSDictionary *)additionalInfo
                              completion:(void (^)(NSDictionary *result))completion;
 
+/// Persistent per-install device identifier. Backed by the same Keychain entry
+/// reported as deviceInfo["deviceId"], so both routes return the same value.
+@property(class, nonatomic, readonly, copy) NSString *deviceId;
+
+/// Device language as an ISO 639-1 code (e.g. "en").
+@property(class, nonatomic, readonly, copy) NSString *language;
+
+/// Cheap, synchronous device facts. Must be called on the main thread —
+/// themeMode and fontScale read UIKit singletons. No apiLevel: Android-only.
++ (NSDictionary<NSString *, id> *)getDeviceMetadata;
+
 @end
 
 NS_ASSUME_NONNULL_END

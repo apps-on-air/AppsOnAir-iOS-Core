@@ -547,24 +547,26 @@
         /// vocabulary differs from Android Core's, which reports "undefined" rather than
         /// "Unspecified" for the unset case.
         internal func getThemeMode() -> String {
-            var themeMode: String = "Unspecified"
+            let traitCollection: UITraitCollection?
 
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                let window = windowScene.windows.first
-            {
-                switch window.traitCollection.userInterfaceStyle {
-                case .dark:
-                    themeMode = "dark"
-                case .light:
-                    themeMode = "light"
-                case .unspecified:
-                    break
-                @unknown default:
-                    break
-                }
+            if #available(iOS 13.0, *) {
+                traitCollection =
+                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?
+                    .windows.first?.traitCollection
+            } else {
+                // Scenes do not exist before iOS 13, but `userInterfaceStyle` does (iOS 12+),
+                // so the style is still readable through the key window.
+                traitCollection = UIApplication.shared.keyWindow?.traitCollection
             }
 
-            return themeMode
+            switch traitCollection?.userInterfaceStyle {
+            case .dark:
+                return "dark"
+            case .light:
+                return "light"
+            default:
+                return "Unspecified"
+            }
         }
 
         /// Font scale, 1.0 being the default. Ported from AppRemark iOS's `fetchFontScale()`,
