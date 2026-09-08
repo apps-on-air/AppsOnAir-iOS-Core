@@ -1,7 +1,9 @@
 ## 1.2.2
 
 * Added `deviceId` and `language` to device information
-* Added `getDeviceMetadata()` static method returning cheap synchronous device facts (deviceId, language, locale, regionCode, osVersion, platform, timezone, deviceModel, manufacturer, appVersion, buildVersionNumber, themeMode, fontScale, isSimulator, firstInstallTime, installVendor) for SDKs
+* Added `getDeviceMetadata()` static method returning cheap synchronous device facts (deviceId, language, locale, regionCode, osVersion, platform, timezone, deviceModel, rawDeviceModel, manufacturer, appVersion, buildVersionNumber, themeMode, fontScale, isSimulator, firstInstallTime, installVendor) for SDKs
+* Added `rawDeviceModel` — raw hardware identifier (e.g. `iPhone16,1`), also exposed through the ObjC bridge
+* Updated device model names — added iPhone 16e and iPhone 17 family, corrected iPad Pro and iPad Air names
 
 ## 1.2.1
 
