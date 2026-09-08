@@ -75,6 +75,62 @@
             }
         }
 
+        /// Persistent per-install device identifier.
+        ///
+        /// Static and synchronous by design: unlike `getDeviceInfo(additionalInfo:completion:)`,
+        /// which must wait on a network-path callback before its dictionary is complete, this
+        /// value comes from Keychain/UserDefaults reads only and is available immediately.
+        /// Callers that assemble a payload synchronously depend on that. Being static also
+        /// avoids constructing an `AppsOnAirCoreServices` instance, which starts a Reachability
+        /// observer as a side effect.
+        ///
+        /// Backed by the same `DeviceUID` entry reported as `deviceInfo["deviceId"]`, so both
+        /// routes always return the same value.
+        @objc public static var deviceId: String { DeviceUID.uid() }
+
+        /// Device language as an ISO 639-1 code (e.g. "en").
+        ///
+        /// Static and synchronous for the same reason as `deviceId` — callers that build a
+        /// payload synchronously cannot wait on `getDeviceInfo`'s completion. Reports the same
+        /// value as `deviceInfo["language"]`.
+        @objc public static var language: String { DeviceInfoService().getDeviceLanguage() }
+
+        /// Raw hardware identifier, e.g. "iPhone16,1".
+        ///
+        /// This is the unmapped `uname` machine string. `deviceModel` maps the same value to a
+        /// marketing name ("iPhone 15 Pro") through a lookup table that has to be updated for
+        /// every new device — any identifier missing from it degrades to a bare "iPhone", so
+        /// the model is lost for hardware newer than the table. The raw code never goes stale,
+        /// which is why the Push subscription payload carries this and lets the console resolve
+        /// the marketing name.
+        ///
+        /// Static and synchronous for the same reason as `deviceId` — callers that build a
+        /// payload synchronously cannot wait on `getDeviceInfo`'s completion. Reports the same
+        /// value as `getDeviceMetadata()["rawDeviceModel"]`.
+        @objc public static var rawDeviceModel: String {
+            DeviceInfoService().getHardwareIdentifier()
+        }
+
+        /// Cheap, synchronous device facts, bundled for callers that need several at once —
+        /// everything the Push and AppRemark SDKs need from Core: `deviceId`, `language`,
+        /// `locale`, `regionCode`, `osVersion`, `platform`, `timezone`, `deviceModel`,
+        /// `rawDeviceModel`, `manufacturer`, `appVersion`, `buildVersionNumber`, `themeMode`,
+        /// `fontScale`, `isSimulator`, `firstInstallTime` and `installVendor`.
+        ///
+        /// Must be called on the main thread — `themeMode` and `fontScale` read UIKit
+        /// singletons. No `apiLevel`: Android-only.
+        ///
+        /// Static and synchronous by design: `getDeviceInfo(additionalInfo:completion:)` must
+        /// wait on a network-path callback for `networkType`, so a caller assembling a payload
+        /// synchronously cannot use it. Nothing here touches storage, memory, battery or the
+        /// network. Individual fields are also available via `deviceId` and `language`.
+        ///
+        /// No `apiLevel` — Android-only. Intended for the Push and AppRemark SDKs.
+        /// Individual fields are also available via `deviceId`, `language` and `rawDeviceModel`.
+        @objc public static func getDeviceMetadata() -> [String: Any] {
+            DeviceInfoService().getDeviceMetadata()
+        }
+
         /// helps to listen internet connectivity state
         @objc internal func networkStatusDidChange(status: Bool) {
             if isNetworkConnected != status {

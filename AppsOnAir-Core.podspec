@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsOnAir-Core'
-  s.version          = '1.1.1'
+  s.version          = '1.2.2'
   s.summary          = 'AppsOnAir Core'
 
   s.description      = "AppsOnAir Core provide central configuration for other AppsOnAir services."
@@ -25,6 +25,8 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
       'AppsOnAir-Core' => ['AppsOnAir-Core/Resources/**/*']
   }
+  # Keychain access for the persistent device identifier (DeviceIdentifier.swift)
+  s.frameworks = 'Security'
   # Network connectivity pod
   s.dependency 'ReachabilitySwift', '5.2.4'
 end

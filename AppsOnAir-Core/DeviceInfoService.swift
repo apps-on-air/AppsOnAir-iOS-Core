@@ -40,6 +40,7 @@
             // Device Info
             deviceInfo["deviceModel"] = getDeviceModel()
             deviceInfo["deviceOsVersion"] = UIDevice.current.systemVersion
+            deviceInfo["deviceId"] = DeviceUID.uid()
 
             #if targetEnvironment(simulator)
                 let batteryLevelString = "100%"
@@ -58,6 +59,7 @@
             let region = getDeviceRegion()
             deviceInfo["deviceRegionCode"] = region.code
             deviceInfo["deviceRegionName"] = region.name
+            deviceInfo["language"] = getDeviceLanguage()
 
             // Storage Info
             let storage = getDeviceStorage()
@@ -310,6 +312,12 @@
                 "iPhone17,2": "iPhone 16 Pro Max",
                 "iPhone17,3": "iPhone 16",
                 "iPhone17,4": "iPhone 16 Plus",
+                "iPhone17,5": "iPhone 16e",
+                "iPhone18,1": "iPhone 17 Pro",
+                "iPhone18,2": "iPhone 17 Pro Max",
+                "iPhone18,3": "iPhone 17",
+                "iPhone18,4": "iPhone Air",
+                "iPhone18,5": "iPhone 17e",
 
                 "iPod1,1": "iPod Touch",
                 "iPod2,1": "iPod Touch",
@@ -349,35 +357,35 @@
                 "iPad5,4": "iPad Air 2",
                 "iPad6,3": "iPad Pro 9.7-inch",
                 "iPad6,4": "iPad Pro 9.7-inch",
-                "iPad6,7": "iPad Pro 12.9-inch",
-                "iPad6,8": "iPad Pro 12.9-inch",
+                "iPad6,7": "iPad Pro 12.9-inch (1st generation)",
+                "iPad6,8": "iPad Pro 12.9-inch (1st generation)",
                 "iPad6,11": "iPad (5th generation)",
                 "iPad6,12": "iPad (5th generation)",
-                "iPad7,1": "iPad Pro 12.9-inch",
-                "iPad7,2": "iPad Pro 12.9-inch",
+                "iPad7,1": "iPad Pro 12.9-inch (2nd generation)",
+                "iPad7,2": "iPad Pro 12.9-inch (2nd generation)",
                 "iPad7,3": "iPad Pro 10.5-inch",
                 "iPad7,4": "iPad Pro 10.5-inch",
                 "iPad7,5": "iPad (6th generation)",
                 "iPad7,6": "iPad (6th generation)",
                 "iPad7,11": "iPad (7th generation)",
                 "iPad7,12": "iPad (7th generation)",
-                "iPad8,1": "iPad Pro 11-inch (3rd generation)",
-                "iPad8,2": "iPad Pro 11-inch (3rd generation)",
-                "iPad8,3": "iPad Pro 11-inch (3rd generation)",
-                "iPad8,4": "iPad Pro 11-inch (3rd generation)",
+                "iPad8,1": "iPad Pro 11-inch (1st generation)",
+                "iPad8,2": "iPad Pro 11-inch (1st generation)",
+                "iPad8,3": "iPad Pro 11-inch (1st generation)",
+                "iPad8,4": "iPad Pro 11-inch (1st generation)",
                 "iPad8,5": "iPad Pro 12.9-inch (3rd generation)",
                 "iPad8,6": "iPad Pro 12.9-inch (3rd generation)",
                 "iPad8,7": "iPad Pro 12.9-inch (3rd generation)",
                 "iPad8,8": "iPad Pro 12.9-inch (3rd generation)",
-                "iPad8,9": "iPad Pro 11-inch (4th generation)",
-                "iPad8,10": "iPad Pro 11-inch (4th generation)",
+                "iPad8,9": "iPad Pro 11-inch (2nd generation)",
+                "iPad8,10": "iPad Pro 11-inch (2nd generation)",
                 "iPad8,11": "iPad Pro 12.9-inch (4th generation)",
                 "iPad8,12": "iPad Pro 12.9-inch (4th generation)",
                 "iPad11,1": "iPad Mini 5",
                 "iPad11,2": "iPad Mini 5",
-                "iPad11,3": "iPad Air 3rd Gen (WiFi)",
+                "iPad11,3": "iPad Air (3rd generation)",
                 "iPad11,4": "iPad Air (3rd generation)",
-                "iPad11,6": "iPad Air (3rd generation)",
+                "iPad11,6": "iPad (8th generation)",
                 "iPad11,7": "iPad (8th generation)",
                 "iPad12,1": "iPad (9th generation)",
                 "iPad12,2": "iPad (9th generation)",
@@ -385,14 +393,14 @@
                 "iPad14,2": "iPad Mini (6th generation)",
                 "iPad13,1": "iPad Air (4th generation)",
                 "iPad13,2": "iPad Air (4th generation)",
-                "iPad13,4": "iPad Pro 11-inch (5th generation)",
-                "iPad13,5": "iPad Pro 11-inch (5th generation)",
-                "iPad13,6": "iPad Pro 11-inch (5th generation)",
-                "iPad13,7": "iPad Pro 11-inch (5th generation)",
+                "iPad13,4": "iPad Pro 11-inch (3rd generation)",
+                "iPad13,5": "iPad Pro 11-inch (3rd generation)",
+                "iPad13,6": "iPad Pro 11-inch (3rd generation)",
+                "iPad13,7": "iPad Pro 11-inch (3rd generation)",
                 "iPad13,8": "iPad Pro 12.9-inch (5th generation)",
-                "iPad13,9": "iPad Pro 11-inch (5th generation)",
-                "iPad13,10": "iPad Pro 11-inch (5th generation)",
-                "iPad13,11": "iPad Pro 11-inch (5th generation)",
+                "iPad13,9": "iPad Pro 12.9-inch (5th generation)",
+                "iPad13,10": "iPad Pro 12.9-inch (5th generation)",
+                "iPad13,11": "iPad Pro 12.9-inch (5th generation)",
                 "iPad13,16": "iPad Air (5th generation)",
                 "iPad13,17": "iPad Air (5th generation)",
                 "iPad13,18": "iPad (10th generation)",
@@ -401,14 +409,26 @@
                 "iPad14,4": "iPad Pro 11-inch (4th generation)",
                 "iPad14,5": "iPad Pro 12.9-inch (6th generation)",
                 "iPad14,6": "iPad Pro 12.9-inch (6th generation)",
-                "iPad14,8": "iPad Air (6th generation)",
-                "iPad14,9": "iPad Air (6th generation)",
-                "iPad14,10": "iPad Air (7th generation)",
-                "iPad14,11": "iPad Air (7th generation)",
-                "iPad16,3": "iPad Pro 11-inch (5th generation)",
-                "iPad16,4": "iPad Pro 11-inch (5th generation)",
-                "iPad16,5": "iPad Pro 12.9-inch (7th generation)",
-                "iPad16,6": "iPad Pro 12.9-inch (7th generation)",
+                "iPad14,8": "iPad Air 11-inch (M2)",
+                "iPad14,9": "iPad Air 11-inch (M2)",
+                "iPad14,10": "iPad Air 13-inch (M2)",
+                "iPad14,11": "iPad Air 13-inch (M2)",
+                "iPad16,3": "iPad Pro 11-inch (M4)",
+                "iPad16,4": "iPad Pro 11-inch (M4)",
+                "iPad16,5": "iPad Pro 13-inch (M4)",
+                "iPad16,6": "iPad Pro 13-inch (M4)",
+                "iPad16,1": "iPad Mini (A17 Pro)",
+                "iPad16,2": "iPad Mini (A17 Pro)",
+                "iPad15,3": "iPad Air 11-inch (M3)",
+                "iPad15,4": "iPad Air 11-inch (M3)",
+                "iPad15,5": "iPad Air 13-inch (M3)",
+                "iPad15,6": "iPad Air 13-inch (M3)",
+                "iPad15,7": "iPad (A16)",
+                "iPad15,8": "iPad (A16)",
+                "iPad17,1": "iPad Pro 11-inch (M5)",
+                "iPad17,2": "iPad Pro 11-inch (M5)",
+                "iPad17,3": "iPad Pro 13-inch (M5)",
+                "iPad17,4": "iPad Pro 13-inch (M5)",
 
                 "AppleTV2,1": "Apple TV",
                 "AppleTV3,1": "Apple TV",
@@ -420,11 +440,14 @@
             ]
         }
 
-        internal func getDeviceId() -> String {
+        /// Returns the `uname` machine string (e.g. "iPhone14,5") — a hardware model code,
+        /// not a device identifier. Distinct from `deviceId`, which is the persistent
+        /// per-install identifier provided by `DeviceUID`.
+        internal func getHardwareIdentifier() -> String {
             var systemInfo = utsname()
             uname(&systemInfo)
 
-            var deviceId = withUnsafePointer(to: &systemInfo.machine) {
+            var hardwareId = withUnsafePointer(to: &systemInfo.machine) {
                 $0.withMemoryRebound(to: CChar.self, capacity: 1) {
                     String(validatingUTF8: $0) ?? "unknown"
                 }
@@ -433,29 +456,29 @@
             #if targetEnvironment(simulator)
                 if let simModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"]
                 {
-                    deviceId = simModelIdentifier
+                    hardwareId = simModelIdentifier
                 }
             #endif
 
-            return deviceId
+            return hardwareId
         }
 
         internal func getDeviceModel() -> String {
-            let deviceId = getDeviceId()
+            let hardwareId = getHardwareIdentifier()
             let deviceNamesByCode = getDeviceNamesByCode()
-            if let deviceName = deviceNamesByCode[deviceId] {
+            if let deviceName = deviceNamesByCode[hardwareId] {
                 return deviceName
             }
 
-            if deviceId.hasPrefix("iPod") {
+            if hardwareId.hasPrefix("iPod") {
                 return "iPod Touch"
-            } else if deviceId.hasPrefix("iPad") {
+            } else if hardwareId.hasPrefix("iPad") {
                 return "iPad"
-            } else if deviceId.hasPrefix("iPhone") {
+            } else if hardwareId.hasPrefix("iPhone") {
                 return "iPhone"
-            } else if deviceId.hasPrefix("AppleTV") {
+            } else if hardwareId.hasPrefix("AppleTV") {
                 return "Apple TV"
-            } else if deviceId.hasPrefix("RealityDevice") {
+            } else if hardwareId.hasPrefix("RealityDevice") {
                 return "Apple Vision"
             }
 
@@ -491,6 +514,166 @@
             }
             let regionName = locale.localizedString(forRegionCode: regionCode) ?? "Unknown"
             return (regionCode, regionName)
+        }
+
+        /// ISO 639-1 language code (e.g. "en"). Android Core normalizes Java's obsolete
+        /// codes ("iw", "in", "ji") so that both platforms report the same value.
+        internal func getDeviceLanguage() -> String {
+            let locale = Locale.autoupdatingCurrent
+            if #available(iOS 16.0, *) {
+                return locale.language.languageCode?.identifier ?? "en"
+            } else {
+                return locale.languageCode ?? "en"
+            }
+        }
+
+        /// Cheap, synchronous device facts, bundled for callers that need several at once.
+        ///
+        /// Deliberately excludes anything the async path provides — `networkType` is the only
+        /// field in `getDeviceInfo` that needs a callback — so this stays safe to call from a
+        /// synchronous payload builder. The non-trivial reads are `firstInstallTime` (a
+        /// filesystem stat) and `installVendor` (a bundle lookup).
+        ///
+        /// IMPORTANT: `themeMode` and `fontScale` read `UIApplication.shared` and
+        /// `UIScreen.main`, so this must be called on the main thread. Android Core's
+        /// equivalent has no such requirement.
+        ///
+        /// No `apiLevel`: that field is Android-only.
+        /// Primary locale as language_REGION (e.g. "en_IN"). Ported from AppRemark iOS's
+        /// `fetchLocaleDetails()`. Overlaps `language` + `regionCode`, the same facts split apart.
+        internal func getDeviceLocale() -> String {
+            let preferredLocaleIdentifier = Locale.preferredLanguages.first ?? "unknown"
+            let preferredLocale = Locale(identifier: preferredLocaleIdentifier)
+
+            let preferredLanguage: String
+            let preferredRegion: String
+
+            if #available(iOS 16.0, *) {
+                preferredLanguage = preferredLocale.language.languageCode?.identifier ?? "unknown"
+                preferredRegion = preferredLocale.region?.identifier ?? "unknown"
+            } else {
+                preferredLanguage = preferredLocale.languageCode ?? "unknown"
+                preferredRegion = preferredLocale.regionCode ?? "unknown"
+            }
+
+            return "\(preferredLanguage)_\(preferredRegion)"
+        }
+
+        /// Interface style. Ported from AppRemark iOS's `fetchThemeMode()`.
+        ///
+        /// Reads `UIApplication.shared`, so it must be called on the main thread. Note the
+        /// vocabulary differs from Android Core's, which reports "undefined" rather than
+        /// "Unspecified" for the unset case.
+        internal func getThemeMode() -> String {
+            let traitCollection: UITraitCollection?
+
+            if #available(iOS 13.0, *) {
+                traitCollection =
+                    (UIApplication.shared.connectedScenes.first as? UIWindowScene)?
+                    .windows.first?.traitCollection
+            } else {
+                // Scenes do not exist before iOS 13, but `userInterfaceStyle` does (iOS 12+),
+                // so the style is still readable through the key window.
+                traitCollection = UIApplication.shared.keyWindow?.traitCollection
+            }
+
+            switch traitCollection?.userInterfaceStyle {
+            case .dark:
+                return "dark"
+            case .light:
+                return "light"
+            default:
+                return "Unspecified"
+            }
+        }
+
+        /// Font scale, 1.0 being the default. Ported from AppRemark iOS's `fetchFontScale()`,
+        /// which maps the content-size category onto Android's numeric scale.
+        ///
+        /// Reads `UIScreen.main`, so it must be called on the main thread.
+        internal func getFontScale() -> Float {
+            var fontScale: Float = 1.0
+
+            #if !os(visionOS)
+                let contentSizeCategory = UIScreen.main.traitCollection.preferredContentSizeCategory
+
+                switch contentSizeCategory {
+                case .extraSmall: fontScale = 0.82
+                case .small: fontScale = 0.88
+                case .medium: fontScale = 0.95
+                case .large: fontScale = 1.0
+                case .extraLarge: fontScale = 1.12
+                case .extraExtraLarge: fontScale = 1.23
+                case .extraExtraExtraLarge: fontScale = 1.35
+                case .accessibilityMedium: fontScale = 1.64
+                case .accessibilityLarge: fontScale = 1.95
+                case .accessibilityExtraLarge: fontScale = 2.35
+                case .accessibilityExtraExtraLarge: fontScale = 2.76
+                case .accessibilityExtraExtraExtraLarge: fontScale = 3.12
+                default: fontScale = 1.0
+                }
+            #endif
+
+            // Round to 2 decimal places
+            return (fontScale * 100).rounded() / 100
+        }
+
+        /// Store or sideload the app was installed from. Ported verbatim from AppRemark iOS's
+        /// `fetchInstallVendor()` so the two report identical values. Note the vocabulary is
+        /// NOT the same as Android Core's — iOS reports `appStore` / `testFlight` / `other`,
+        /// Android reports store display names.
+        internal func getInstallVendor() -> String {
+            #if targetEnvironment(simulator) || os(macOS) || targetEnvironment(macCatalyst)
+                return "other"
+            #else
+                // An embedded provisioning profile indicates Ad-Hoc / enterprise distribution.
+                if hasEmbeddedMobileProvision() {
+                    return "other"
+                }
+
+                if isAppStoreReceiptSandbox() {
+                    return "testFlight"
+                }
+
+                return "appStore"
+            #endif
+        }
+
+        private func hasEmbeddedMobileProvision() -> Bool {
+            return Bundle.main.path(forResource: "embedded", ofType: "mobileprovision") != nil
+        }
+
+        private func isAppStoreReceiptSandbox() -> Bool {
+            #if targetEnvironment(simulator)
+                return false
+            #else
+                guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL else {
+                    return false
+                }
+                return appStoreReceiptURL.lastPathComponent == "sandboxReceipt"
+            #endif
+        }
+
+        internal func getDeviceMetadata() -> [String: Any] {
+            var metadata: [String: Any] = [:]
+            metadata["deviceId"] = DeviceUID.uid()
+            metadata["language"] = getDeviceLanguage()
+            metadata["osVersion"] = UIDevice.current.systemVersion
+            metadata["timezone"] = TimeZone.current.identifier
+            metadata["regionCode"] = getDeviceRegion().code
+            metadata["appVersion"] = Bundle.main.releaseVersionNumber ?? ""
+            metadata["buildVersionNumber"] = Bundle.main.buildVersionNumber ?? ""
+            metadata["platform"] = UIDevice.current.systemName
+            metadata["locale"] = getDeviceLocale()
+            metadata["themeMode"] = getThemeMode()
+            metadata["fontScale"] = getFontScale()
+            metadata["deviceModel"] = getDeviceModel()
+            metadata["rawDeviceModel"] = getHardwareIdentifier()
+            metadata["manufacturer"] = "Apple"
+            metadata["installVendor"] = getInstallVendor()
+            metadata["isSimulator"] = isSimulator
+            metadata["firstInstallTime"] = getAppInstallationDate()
+            return metadata
         }
 
         // convert byte into (GB,KB,MB) according the size

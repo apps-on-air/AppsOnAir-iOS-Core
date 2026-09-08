@@ -8,6 +8,21 @@
 @property(nonatomic, strong) id swiftService;
 @end
 
+// Resolved once and shared by the class methods below. The instance methods keep
+// using `swiftService`; the static members must not, because going through an
+// instance would construct AppsOnAirCoreServices and start a Reachability observer.
+static Class AppsOnAirCoreSwiftClass(void) {
+    static Class swiftClass;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        swiftClass = NSClassFromString(@"AppsOnAir_Core.AppsOnAirCoreServices");
+        NSCAssert(swiftClass != nil,
+                 @"AppsOnAir_Core framework must be linked. "
+                 @"Make sure AppsOnAir_Core is added as a dependency.");
+    });
+    return swiftClass;
+}
+
 @implementation AppsOnAirCoreServices
 
 - (instancetype)init {
@@ -65,6 +80,50 @@
     };
     [inv setArgument:&block atIndex:3];
     [inv invoke];
+}
+
++ (NSString *)deviceId {
+    Class swiftClass = AppsOnAirCoreSwiftClass();
+    SEL sel = NSSelectorFromString(@"deviceId");
+    if (![swiftClass respondsToSelector:sel]) return @"";
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    NSString *value = [swiftClass performSelector:sel];
+#pragma clang diagnostic pop
+    return value ?: @"";
+}
+
++ (NSString *)language {
+    Class swiftClass = AppsOnAirCoreSwiftClass();
+    SEL sel = NSSelectorFromString(@"language");
+    if (![swiftClass respondsToSelector:sel]) return @"";
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    NSString *value = [swiftClass performSelector:sel];
+#pragma clang diagnostic pop
+    return value ?: @"";
+}
+
++ (NSString *)rawDeviceModel {
+    Class swiftClass = AppsOnAirCoreSwiftClass();
+    SEL sel = NSSelectorFromString(@"rawDeviceModel");
+    if (![swiftClass respondsToSelector:sel]) return @"";
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    NSString *value = [swiftClass performSelector:sel];
+#pragma clang diagnostic pop
+    return value ?: @"";
+}
+
++ (NSDictionary<NSString *, id> *)getDeviceMetadata {
+    Class swiftClass = AppsOnAirCoreSwiftClass();
+    SEL sel = NSSelectorFromString(@"getDeviceMetadata");
+    if (![swiftClass respondsToSelector:sel]) return @{};
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    NSDictionary *value = [swiftClass performSelector:sel];
+#pragma clang diagnostic pop
+    return value ?: @{};
 }
 
 @end
