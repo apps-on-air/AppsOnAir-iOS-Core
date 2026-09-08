@@ -95,11 +95,27 @@
         /// value as `deviceInfo["language"]`.
         @objc public static var language: String { DeviceInfoService().getDeviceLanguage() }
 
+        /// Raw hardware identifier, e.g. "iPhone16,1".
+        ///
+        /// This is the unmapped `uname` machine string. `deviceModel` maps the same value to a
+        /// marketing name ("iPhone 15 Pro") through a lookup table that has to be updated for
+        /// every new device — any identifier missing from it degrades to a bare "iPhone", so
+        /// the model is lost for hardware newer than the table. The raw code never goes stale,
+        /// which is why the Push subscription payload carries this and lets the console resolve
+        /// the marketing name.
+        ///
+        /// Static and synchronous for the same reason as `deviceId` — callers that build a
+        /// payload synchronously cannot wait on `getDeviceInfo`'s completion. Reports the same
+        /// value as `getDeviceMetadata()["rawDeviceModel"]`.
+        @objc public static var rawDeviceModel: String {
+            DeviceInfoService().getHardwareIdentifier()
+        }
+
         /// Cheap, synchronous device facts, bundled for callers that need several at once —
         /// everything the Push and AppRemark SDKs need from Core: `deviceId`, `language`,
         /// `locale`, `regionCode`, `osVersion`, `platform`, `timezone`, `deviceModel`,
-        /// `manufacturer`, `appVersion`, `buildVersionNumber`, `themeMode`, `fontScale`,
-        /// `isSimulator`, `firstInstallTime` and `installVendor`.
+        /// `rawDeviceModel`, `manufacturer`, `appVersion`, `buildVersionNumber`, `themeMode`,
+        /// `fontScale`, `isSimulator`, `firstInstallTime` and `installVendor`.
         ///
         /// Must be called on the main thread — `themeMode` and `fontScale` read UIKit
         /// singletons. No `apiLevel`: Android-only.
@@ -110,6 +126,7 @@
         /// network. Individual fields are also available via `deviceId` and `language`.
         ///
         /// No `apiLevel` — Android-only. Intended for the Push and AppRemark SDKs.
+        /// Individual fields are also available via `deviceId`, `language` and `rawDeviceModel`.
         @objc public static func getDeviceMetadata() -> [String: Any] {
             DeviceInfoService().getDeviceMetadata()
         }

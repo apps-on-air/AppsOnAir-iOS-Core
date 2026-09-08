@@ -104,6 +104,17 @@ static Class AppsOnAirCoreSwiftClass(void) {
     return value ?: @"";
 }
 
++ (NSString *)rawDeviceModel {
+    Class swiftClass = AppsOnAirCoreSwiftClass();
+    SEL sel = NSSelectorFromString(@"rawDeviceModel");
+    if (![swiftClass respondsToSelector:sel]) return @"";
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    NSString *value = [swiftClass performSelector:sel];
+#pragma clang diagnostic pop
+    return value ?: @"";
+}
+
 + (NSDictionary<NSString *, id> *)getDeviceMetadata {
     Class swiftClass = AppsOnAirCoreSwiftClass();
     SEL sel = NSSelectorFromString(@"getDeviceMetadata");

@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// Device language as an ISO 639-1 code (e.g. "en").
 @property(class, nonatomic, readonly, copy) NSString *language;
 
+/// Raw hardware identifier, e.g. "iPhone16,1". Unmapped counterpart of
+/// deviceInfo["deviceModel"], which resolves a marketing name.
+@property(class, nonatomic, readonly, copy) NSString *rawDeviceModel;
+
 /// Cheap, synchronous device facts. Must be called on the main thread —
 /// themeMode and fontScale read UIKit singletons. No apiLevel: Android-only.
 + (NSDictionary<NSString *, id> *)getDeviceMetadata;
