@@ -1,3 +1,6 @@
+## 1.2.3
+* Minor improvements.
+
 ## 1.2.2
 
 * Added `deviceId` and `language` to device information
