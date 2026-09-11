@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppsOnAir-Core'
-  s.version          = '1.2.2'
+  s.version          = '1.2.3'
   s.summary          = 'AppsOnAir Core'
 
   s.description      = "AppsOnAir Core provide central configuration for other AppsOnAir services."
