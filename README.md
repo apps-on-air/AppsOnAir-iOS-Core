@@ -9,7 +9,7 @@ AppsOnAir-Core is a native iOS internal pod that provides helper functionalities
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-Minimum deployment target: 12.0
+Minimum deployment target: 15.0 (supports iOS 27 / Xcode 27)
 
 ## Installation
 

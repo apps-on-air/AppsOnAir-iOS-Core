@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/apps-on-air/AppsOnAir-iOS-Core.git', :tag => s.version.to_s }
 
   s.swift_version  = '5.0'
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '15.0'
 
   s.source_files = 'AppsOnAir-Core/**/*.{swift,h,m}'
   s.resource_bundles = {

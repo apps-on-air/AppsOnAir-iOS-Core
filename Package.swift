@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "AppsOnAir-Core",
     platforms: [
-        .iOS(.v12)
+        .iOS(.v15)
     ],
     products: [
         .library(
