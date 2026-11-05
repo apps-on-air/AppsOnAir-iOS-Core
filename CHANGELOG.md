@@ -1,3 +1,8 @@
+## 1.3.0
+* Supports iOS 27 and Xcode 27.
+* Minimum iOS version is now 15.0 (Xcode 27 can't build for anything lower).
+* Removed the ReachabilitySwift dependency: network monitoring now uses Apple's `NWPathMonitor`. No API changes.
+
 ## 1.2.3
 * Minor improvements.
 
