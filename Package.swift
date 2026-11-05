@@ -12,15 +12,9 @@ let package = Package(
             targets: ["AppsOnAir-Core", "AppsOnAir-Core-ObjC"]
         )
     ],
-    dependencies: [
-        .package(url: "https://github.com/ashleymills/Reachability.swift.git", exact: "5.2.4")
-    ],
     targets: [
         .target(
             name: "AppsOnAir-Core",
-            dependencies: [
-                .product(name: "Reachability", package: "Reachability.swift")
-            ],
             path: "AppsOnAir-Core",
             resources: [
                 .process("Resources/AppsOnAir-CoreInfo.plist")

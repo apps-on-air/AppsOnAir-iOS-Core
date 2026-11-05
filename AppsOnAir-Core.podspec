@@ -25,8 +25,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
       'AppsOnAir-Core' => ['AppsOnAir-Core/Resources/**/*']
   }
-  # Keychain access for the persistent device identifier (DeviceIdentifier.swift)
-  s.frameworks = 'Security'
-  # Network connectivity pod
-  s.dependency 'ReachabilitySwift', '5.2.4'
+  # Security: keychain access for the persistent device identifier (DeviceIdentifier.swift)
+  # Network: connectivity monitoring via NWPathMonitor (NetwarkWatcher.swift)
+  s.frameworks = 'Security', 'Network'
 end
