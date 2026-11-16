@@ -1,5 +1,5 @@
 import Foundation
-import Reachability
+import Network
 
 /// Protocol to notify listeners about network state changes
 protocol NetworkServiceDelegate: AnyObject {
@@ -16,56 +16,57 @@ protocol NetworkService {
 ///get current network status
 var currentNetworkState: String = "Unknown"
 
-/// Implementation of network service using Reachability
-internal class ReachabilityNetworkService: NetworkService {
-    private let reachability = try! Reachability()
+/// Implementation of network service using Apple's `NWPathMonitor` (Network framework).
+///
+/// Replaces the former ReachabilitySwift-based watcher and keeps its behaviour:
+/// - the current status is reported once right after `startMonitoring()`, then on every change;
+/// - `currentNetworkState` and the delegate are updated on the main queue;
+/// - any satisfied non-cellular path (Wi-Fi, wired, simulator) is reported as "Wi-Fi".
+internal class PathMonitorNetworkService: NetworkService {
     weak var delegate: NetworkServiceDelegate?
 
-    init() {
-        NotificationCenter.default.addObserver(
-            self, selector: #selector(networkChanged(_:)), name: .reachabilityChanged, object: nil)
-    }
+    /// An `NWPathMonitor` can't be restarted once cancelled, so a fresh one is created per start.
+    private var monitor: NWPathMonitor?
+    private let queue = DispatchQueue(label: "com.appsonair.core.network-monitor")
 
     deinit {
-        NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: nil)
+        monitor?.cancel()
     }
 
     /// start network connectivity listener
     internal func startMonitoring() {
-        do {
-            try reachability.startNotifier()
-        } catch {
-            Logger.throwError(message: "startMonitoring startMonitoring: \(error)")
+        guard monitor == nil else { return }
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { [weak self] path in
+            self?.networkChanged(path)
         }
+        self.monitor = monitor
+        monitor.start(queue: queue)
     }
 
     /// stop network connectivity listener
     internal func stopMonitoring() {
-        reachability.stopNotifier()
+        monitor?.cancel()
+        monitor = nil
     }
 
     /// call when network state changed
-    @objc private func networkChanged(_ notification: Notification) {
-        guard let reachability = notification.object as? Reachability else { return }
-
-        let isConnected = reachability.connection != .unavailable
-
-        switch reachability.connection {
-        case .wifi:
-            currentNetworkState = "Wi-Fi"
-        case .cellular:
-
-            currentNetworkState = "Mobile Data"
-        case .unavailable:
-            currentNetworkState = "Not Connected"
-        @unknown default:
-            currentNetworkState = "Not Connected"
+    private func networkChanged(_ path: NWPath) {
+        let isConnected = path.status == .satisfied
+        let state: String
+        if !isConnected {
+            state = "Not Connected"
+        } else if path.usesInterfaceType(.cellular) {
+            state = "Mobile Data"
+        } else {
+            state = "Wi-Fi"
         }
 
         //Improvements for React Native platform.
         DispatchQueue.main.asyncAfter(
             deadline: .now() + 0.001,
             execute: {
+                currentNetworkState = state
                 self.delegate?.networkStatusDidChange(status: isConnected)
             })
 

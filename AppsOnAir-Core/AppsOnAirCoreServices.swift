@@ -22,7 +22,7 @@
         }
 
         /// initialize network connectivity service.
-        var networkService: NetworkService = ReachabilityNetworkService()
+        var networkService: NetworkService = PathMonitorNetworkService()
 
         // Closure type for network status change handler
         public typealias NetworkStatusChangeHandler = (Bool) -> Void
